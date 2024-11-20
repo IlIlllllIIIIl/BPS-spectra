@@ -129,15 +129,20 @@ def rs4(r):
         np.arange(-r[3], r[3])[(np.arange(-r[3], r[3]) != -1) & (np.arange(-r[3], r[3]) != 1)]
     ]
 
+r5_20 = [5] + [20]*5
+sP5_20 = s4P(rs4(r5_20))
+sN5_20 = s4N(rs4(r5_20))
+save(4, sP5_20, "/scratch/li1.feng/BPS-spectra/star_5_20_P.csv")
+save(4, sN5_20, "/scratch/li1.feng/BPS-spectra/star_5_20_N.csv")
 
 r5_20 = [5] + [2000] * 5
 sP5_20 = solveP(rangeall(r5_20))
 sN5_20 = solveN(rangeall(r5_20))
-save(6, sP5_20, "/Users/lithium/Documents/GitHub/BPS-spectra/solutions_5_2000_P_all.csv")
-save(6, sN5_20, "/Users/lithium/Documents/GitHub/BPS-spectra/solutions_5_2000_N_all.csv")
+save(6, sP5_20, "/scratch/li1.feng/BPS-spectra/solutions_5_2000_P_all.csv")
+save(6, sN5_20, "/scratch/li1.feng/BPS-spectra/solutions_5_2000_N_all.csv")
 
 r5_2000 = [5] + [2000]*5
 sP5_2000 = s4P(rs4(r5_2000))
-save(4, sP5_2000, "/Users/lithium/Documents/GitHub/BPS-spectra/star_5_2000_P.csv")
+save(4, sP5_2000, "/scratch/li1.feng/BPS-spectra/star_5_2000_P.csv")
 sN5_2000 = s4N(rs4(r5_2000))
-save(4, sN5_2000, "/Users/lithium/Documents/GitHub/BPS-spectra/star_5_2000_N.csv")
+save(4, sN5_2000, "/scratch/li1.feng/BPS-spectra/star_5_2000_N.csv")
