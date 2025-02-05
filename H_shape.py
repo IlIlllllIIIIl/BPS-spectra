@@ -132,17 +132,17 @@ class Solver:
                                     self.sol[val4].append((a1, a2, a3, a4, a5, a6)) 
     
 
-    def save(solutions, filename, num_columns = 6):
-        column_names = [f"a{i+1}" for i in range(num_columns)]
+def save(solutions, filename, num_columns = 6):
+    column_names = [f"a{i+1}" for i in range(num_columns)]
 
-        # Create a DataFrame
-        df = pd.DataFrame(solutions, columns=column_names)
+    # Create a DataFrame
+    df = pd.DataFrame(solutions, columns=column_names)
 
-        df.to_csv(filename, index=False)
+    df.to_csv(filename, index=False)
 
-        print(f"Solutions exported to {filename}")
-        
-        return 
+    print(f"Solutions exported to {filename}")
+    
+    return 
 
 
 def rangeN(r):
