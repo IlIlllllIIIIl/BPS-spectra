@@ -118,13 +118,13 @@ def save(solutions, filename, num_columns = 6):
     
     return 
 
-
-r = [-10] + [-500] * 5
-solver = Solver(r)
-solver.select(2)
-solver.select(3)
-solution = solver.get_solutions()
-for i in solution.keys():
-    path_names = f"det_{i}_500.csv"
-    save(solution[i], path_names)
+print(f"H_shape.py loaded successfully")
+# r = [-10] + [-500] * 5
+# solver = Solver(r)
+# solver.select(2)
+# solver.select(3)
+# solution = solver.get_solutions()
+# for i in solution.keys():
+#     path_names = f"det_{i}_500.csv"
+#     save(solution[i], path_names)
 
