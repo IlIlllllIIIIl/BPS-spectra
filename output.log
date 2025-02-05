@@ -1,5 +1,1 @@
 nohup: ignoring input
-  File "H-shape.py", line 103
-    column_names = [f"a{i+1}" for i in range(num_columns)]
-                            ^
-SyntaxError: invalid syntax
