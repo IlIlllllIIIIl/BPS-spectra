@@ -98,18 +98,51 @@ class Solver:
     
     def get_max_det(self):
         return self.det
-
-def save(solutions, filename, num_columns = 6):
-    column_names = [f"a{i+1}" for i in range(num_columns)]
-
-    # Create a DataFrame
-    df = pd.DataFrame(solutions, columns=column_names)
-
-    df.to_csv(filename, index=False)
-
-    print(f"Solutions exported to {filename}")
     
-    return 
+    def test(self, n):
+        print(f"Testing determinant {n}...")
+        for a1 in self.ranges[0]:
+            for a2 in self.ranges[1]:
+                if a1 < a2 or a1 * a2 <= 1:
+                    continue
+                for a3 in self.ranges[2]:
+                    val1 = -a2 - a3 + a1 * a2 * a3
+                    if val1 >= 0: 
+                        continue
+                    for a4 in self.ranges[3]:
+                        if a3 < a4:
+                            continue
+                        val2 = -a2 * a4 - a3 * a4 + a2 * a3 * (-1 + a1 * a4)
+                        if val2 <= 0:
+                            continue
+                        for a5 in self.ranges[4]:
+                            if a1 == a2 and a3 < a5:
+                                continue
+                            val3 = a4 - a2 * a4 * a5 + a3 * (1 - a2 * a5 - a4 * a5 + a1 * a4 * (-1 + a2 * a5))
+                            if val3 >= 0:
+                                continue
+                            for a6 in self.ranges[5]:
+                                if (a1 == a2 and a5 == a3 and a4 < a6) or (a5 < a6):
+                                    continue
+                                val4 = (a4 * (a5 + a6 - a2 * a5 * a6) + 
+                                        a3 * (a6 - a1 * a4 * a6 + a5 * (1 - a2 * a6 - a4 * a6 + a1 * a4 * (-1 + a2 * a6))))                
+                                
+                                if val4 == n:
+                                    print((a1, a2, a3, a4, a5, a6))
+                                    self.sol[val4].append((a1, a2, a3, a4, a5, a6)) 
+    
+
+    def save(solutions, filename, num_columns = 6):
+        column_names = [f"a{i+1}" for i in range(num_columns)]
+
+        # Create a DataFrame
+        df = pd.DataFrame(solutions, columns=column_names)
+
+        df.to_csv(filename, index=False)
+
+        print(f"Solutions exported to {filename}")
+        
+        return 
 
 
 def rangeN(r):
@@ -122,8 +155,18 @@ def rangeN(r):
         np.arange(r[5], -1)
     ]
 
+def rangeall(r):
+    return [
+        np.arange(r[0], -r[0]),
+        np.arange(r[1], -r[1]),
+        np.arange(r[2], -r[2]),
+        np.arange(r[3], -r[3]),
+        np.arange(r[4], -r[4]),
+        np.arange(r[5], -r[5])
+    ]
 
-r = [-10] + [-200] * 6
+
+r = [-10] + [-200] * 5
 ranges = rangeN(r)
 
 solver = Solver(ranges)
@@ -136,4 +179,4 @@ solutions = solver.get_solutions()
 for i in solutions.keys():
     print(i)
     path_names = f"det{i}_200.csv"
-    save(solutions.get(i), path_names)
+    solver.save(solutions.get(i), path_names)
