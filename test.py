@@ -167,7 +167,7 @@ def save(solutions, filename, num_columns = 6):
     return 
 
 
-r = [-5] + [-20] * 5
+r = [-5] + [-500] * 5
 ranges = rangeN(r)
 
 solver = Solver(ranges)
