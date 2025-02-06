@@ -34,7 +34,7 @@ class Solver:
                                 if a5 < a6:
                                     continue
                                 val = a4 * (a5 + a6 - a2 * a5 * a6) + a3 * (a6 - a1 * a4 * a6 + a5 * (1 - a2 * a6 - a4 * a6 + a1 * a4 * (-1 + a2 * a6)))
-                                if int(val) == val:
+                                if int(val) == val and val > 0:
                                     self.series_in_order[n].append((a1, a2, a3, a4, a5, a6))
                                 # if val == int(val):
                                     # print(n, val)
@@ -76,13 +76,12 @@ class Solver:
                                 # if a1 == a2 and a5 == a3 and a4 > a6: # dont think it's ever gonna happen since we've set a4>=a3, a5>=a4 when a1==a2 and a6>=a5. so ain't no way we'll have a6<a4
                                 #     continue
                                 val4 = a6 * val3 + a5 * (a1 * a3 * a4 - a3 - a4)
-                                # if val4 == int(val4) and val4 > 0:
-                                #     val4 = int(val4)
-                                #     self.sol[val4].append((a2, a1, a6, a5, a4, a3))
-                                #     self.dict2[num].append((a2, a1, a6, a5, a4, a3))
-                                self.dict[num].append(val4)
-                                self.dict_again[num].append((a2, a1, a6, a5, a4, a3))
-                                num += 1
+                                if val4 == int(val4) and val4 > 0:
+                                    val4 = int(val4)
+                                    self.sol[val4].append((a2, a1, a6, a5, a4, a3))
+                                    self.series_in_order[num].append((a2, a1, a6, a5, a4, a3))
+                                    self.dict[num].append(val4)
+                                    num += 1
                                 
 
     def select(self, n):
