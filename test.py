@@ -30,11 +30,9 @@ from H_shape import Solver, save
 
 # save(solution, "det_vs_ss_200.txt")
 
-# r = [-10] + [-500] * 5
-# solver = Solver(r)
-# solver.select(2)
-# solver.select(3)
-# solution = solver.get_solutions()
-# for i in range(1,10):
-#     path_names = f"real_test_det_{i}.csv"
-#     save(series[i], path_names)
+r = [-10] + [-10] * 5
+solver = Solver(r)
+for i in range(1,10):
+    solver.select(i)
+    path_names = f"test_det_{i}.csv"
+    save(solver.get_solutions()[i], path_names)
