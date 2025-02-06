@@ -8,7 +8,6 @@ class Solver:
     def __init__(self, ranges):
         self.ranges = ranges
         self.sol = defaultdict(list) 
-        self.det = 0 
         self.dict = defaultdict(list)
     
     def find_all(self):
@@ -37,11 +36,10 @@ class Solver:
                                 if a1 == a2 and a5 == a3 and a4 > a6:
                                     continue
                                 val4 = a6 * val3 + a5 * (a1 * a3 * a4 - a3 - a4)
-                                if int(val4) == val4:
-                                    val4 = int(val4)
-                                    self.sol[val4].append((a2, a1, a6, a5, a4, a3))
-                                    self.dict[num].append(val4)
-                                    num += 1
+                                self.sol[val4].append((a2, a1, a6, a5, a4, a3))
+                                self.dict[num].append(val4)
+                                num += 1
+                                
 
     def select(self, n):
         print(f"Searching for determinant {n}...")
@@ -78,8 +76,8 @@ class Solver:
     def get_det(self):
         return dict(self.dict)
     
-    # def get_max_det(self):
-    #     return self.det
+    def get_ext_det(self):
+         return self.detmin, self.detmax
     
     def test(self, n):
         print(f"Testing determinant {n}...")
@@ -106,8 +104,10 @@ class Solver:
                                 if a1 == a2 and a5 == a3 and a4 > a6:
                                     continue
                                 a6 = int(a6)
-                                print(a2, a1, a6, a5, a4, a3)
+                                print((a2, a1, a6, a5, a4, a3))
                                 self.sol[n].append((a2, a1, a6, a5, a4, a3))
+
+# from H_shape import Solver
 
 def save(solutions, filename, num_columns = 6):
     column_names = [f"a{i+1}" for i in range(num_columns)]
@@ -122,12 +122,4 @@ def save(solutions, filename, num_columns = 6):
     return 
 
 print(f"H_shape.py loaded successfully")
-# r = [-10] + [-500] * 5
-# solver = Solver(r)
-# solver.select(2)
-# solver.select(3)
-# solution = solver.get_solutions()
-# for i in solution.keys():
-#     path_names = f"det_{i}_500.csv"
-#     save(solution[i], path_names)
 
