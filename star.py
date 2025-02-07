@@ -26,10 +26,10 @@ class StarSolver:
                     for a4 in range(max(self.ranges[3], a3),-1):
                         val2 = a4 * val1 - a2 * a3
                         if val2 == int(val2) and val2 > 0:
+                            num = - (a1 + a2 + a3 + a4)
                             self.sol[val2].append((a1, a4, a3, a2))
                             self.series_in_order[num].append((a1, a4, a3, a2))
                             self.dict[num].append(val2)
-                            num += 1
                                 
     def get_series(self):
         return dict(self.series_in_order)
