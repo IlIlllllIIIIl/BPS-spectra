@@ -4,7 +4,7 @@ solver = Solver(r)
 solver.find_all()
 
 x = list(solver.get_det().keys())
-# x = x[::-1]
+x = x[::-1]
 y = list(solver.get_det().values())
 
 import matplotlib.pyplot as plt
@@ -30,7 +30,7 @@ r = [-100] * 4
 solver2 = StarSolver(r)
 solver2.find_all()
 x = list(solver2.get_det().keys())
-# x = x[::-1]
+x = x[::-1]
 y = list(solver2.get_det().values())
 
 plt.plot(x, y, linewidth=0.5)
