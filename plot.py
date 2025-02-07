@@ -43,7 +43,7 @@ for key, values in solver.get_det().items():
     x_values.extend([key] * len(values))  # Repeat key for each y-value
     y_values.extend(values)  # Collect all y-values
 
-plt.scatter(x_values, y_values, s=1)
+plt.scatter(x_values, y_values, s=0.5)
 # plt.plot(x_ext, y_max, linewidth=0.5, color='red', linestyle='-', label="Max values")
 # plt.plot(x_ext, y_min, linewidth=0.5, color='green', linestyle='-', label="Min values")
 
@@ -51,5 +51,5 @@ plt.scatter(x_values, y_values, s=1)
 plt.xlabel('Sample size')
 plt.ylabel('Determinant')
 plt.title('Determinants vs Sample size')
-plt.savefig("star_scatter_20.pdf") 
+plt.savefig("star_scatter_200.pdf") 
 plt.close()
