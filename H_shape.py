@@ -11,36 +11,36 @@ class Solver:
         self.dict = defaultdict(list)
         self.series_in_order = defaultdict(list)
     
-    def findall(self):
-        n=1
-        for a1 in range(self.ranges[0],0):
-            for a2 in range(self.ranges[1],0):
-                if a1 < a2 or a1 * a2 <= 1:  # Prune invalid combinations
-                    continue
-                for a3 in range(self.ranges[2],-1):
-                    if -a2 - a3 + a1 * a2 * a3 >= 0: 
-                        continue
-                    for a4 in range(self.ranges[3],-1):
-                        if a3 < a4 or -a2 * a4 - a3 * a4 + a2 * a3 * (-1 + a1 * a4) <= 0: 
-                            continue
-                        for a5 in range(self.ranges[4],-1):
-                            if a1 == a2 and a3 < a5:
-                                continue
-                            if a4 - a2 * a4 * a5 + a3 * (1 - a2 * a5 - a4 * a5 + a1 * a4 * (-1 + a2 * a5)) >= 0: 
-                                continue
-                            for a6 in range(self.ranges[5],-1):
-                                if a1 == a2 and a5 == a3 and a4 < a6:
-                                    continue
-                                if a5 < a6:
-                                    continue
-                                val = a4 * (a5 + a6 - a2 * a5 * a6) + a3 * (a6 - a1 * a4 * a6 + a5 * (1 - a2 * a6 - a4 * a6 + a1 * a4 * (-1 + a2 * a6)))
-                                if int(val) == val and val > 0:
-                                    self.series_in_order[n].append((a1, a2, a3, a4, a5, a6))
-                                # if val == int(val):
-                                    # print(n, val)
-                                    # self.dict_again[n].append((a1, a2, a3, a4, a5, a6))
-                                    self.dict[n].append(val)
-                                    n += 1
+    # def findall(self):
+    #     n=1
+    #     for a1 in range(self.ranges[0],0):
+    #         for a2 in range(self.ranges[1],0):
+    #             if a1 < a2 or a1 * a2 <= 1:  # Prune invalid combinations
+    #                 continue
+    #             for a3 in range(self.ranges[2],-1):
+    #                 if -a2 - a3 + a1 * a2 * a3 >= 0: 
+    #                     continue
+    #                 for a4 in range(self.ranges[3],-1):
+    #                     if a3 < a4 or -a2 * a4 - a3 * a4 + a2 * a3 * (-1 + a1 * a4) <= 0: 
+    #                         continue
+    #                     for a5 in range(self.ranges[4],-1):
+    #                         if a1 == a2 and a3 < a5:
+    #                             continue
+    #                         if a4 - a2 * a4 * a5 + a3 * (1 - a2 * a5 - a4 * a5 + a1 * a4 * (-1 + a2 * a5)) >= 0: 
+    #                             continue
+    #                         for a6 in range(self.ranges[5],-1):
+    #                             if a1 == a2 and a5 == a3 and a4 < a6:
+    #                                 continue
+    #                             if a5 < a6:
+    #                                 continue
+    #                             val = a4 * (a5 + a6 - a2 * a5 * a6) + a3 * (a6 - a1 * a4 * a6 + a5 * (1 - a2 * a6 - a4 * a6 + a1 * a4 * (-1 + a2 * a6)))
+    #                             if int(val) == val and val > 0:
+    #                                 self.series_in_order[n].append((a1, a2, a3, a4, a5, a6))
+    #                             # if val == int(val):
+    #                                 # print(n, val)
+    #                                 # self.dict_again[n].append((a1, a2, a3, a4, a5, a6))
+    #                                 self.dict[n].append(val)
+    #                                 n += 1
 
 
     def get_series(self):
