@@ -31,10 +31,10 @@ class StarSolver:
                             self.series_in_order[num].append((a1, a4, a3, a2))
                             self.dict[num].append(val2)
                                 
-    def get_series(self):
+    def get_series(self): # "order" means sum of all weights, and this dictionary gives the series corresponding to each order
         return dict(self.series_in_order)
     
-    def get_det(self):
+    def get_det(self): # values of the determinants corresponding to previously defined "order"
         return dict(self.dict)
 
 
@@ -59,8 +59,8 @@ class StarSolver:
                         # num += 1
 
 
-    def get_solutions(self):
-        return dict(self.sol)  # Convert defaultdict to normal dict before returning
+    def get_solutions(self): # keys are the determinants, values are the corresponding series
+        return dict(self.sol)  
 
 
 
