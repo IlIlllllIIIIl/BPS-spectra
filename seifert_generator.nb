@@ -3,10 +3,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[         0,          0]
-NotebookDataLength[     34193,        886]
-NotebookOptionsPosition[     31677,        839]
-NotebookOutlinePosition[     32067,        855]
-CellTagsIndexPosition[     32024,        852]
+NotebookDataLength[     31359,        814]
+NotebookOptionsPosition[     29361,        774]
+NotebookOutlinePosition[     29751,        790]
+CellTagsIndexPosition[     29708,        787]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -700,11 +700,8 @@ Cell[BoxData[
    3.951829501389064*^9, 3.951829506181905*^9}, {3.951829655050652*^9, 
    3.95182973162107*^9}, {3.9518297728799133`*^9, 3.951829789653158*^9}, {
    3.951829930228677*^9, 3.951829975289866*^9}, {3.951830563689912*^9, 
-   3.951830639899167*^9}, 
-   3.952105699887641*^9},ExpressionUUID->"6ff71708-25c6-45fe-86c2-\
-c473ebaf2aea"],
-
-Cell[CellGroupData[{
+   3.951830639899167*^9}, 3.952105699887641*^9},
+ CellLabel->"In[59]:=",ExpressionUUID->"6ff71708-25c6-45fe-86c2-c473ebaf2aea"],
 
 Cell[BoxData[
  RowBox[{"(*", 
@@ -772,70 +769,8 @@ Cell[BoxData[
    3.9518313932787867`*^9, 3.951831417029366*^9}, {3.951840946823804*^9, 
    3.951840949277136*^9}, {3.951841054301874*^9, 3.951841054411241*^9}, {
    3.9518411495018587`*^9, 3.951841158451666*^9}, 3.9518412555037394`*^9, 
-   3.952105675003916*^9},ExpressionUUID->"c623a6f5-38f9-4631-8856-\
-37522db5def5"],
-
-Cell[BoxData[
- TemplateBox[{
-  "Import", "nffil", 
-   "\"File \\!\\(\\*RowBox[{\\\"\\\\\\\"/Users/lithium/Downloads/BPS-spectra/\
-data/seifert/projections/2_7_19.mx\\\\\\\"\\\"}]\\) not found during \
-\\!\\(\\*RowBox[{\\\"Import\\\"}]\\).\"", 2, 453, 85, 19760331088638781695, 
-   "Local"},
-  "MessageTemplate"]], "Message", "MSG",
- CellChangeTimes->{3.9518412783347473`*^9},
- CellLabel->
-  "During evaluation of \
-In[453]:=",ExpressionUUID->"c3d4a597-be16-41ff-a9a8-17502ab1f223"],
-
-Cell[BoxData[
- TemplateBox[{
-  "Part", "partd", 
-   "\"Part specification \\!\\(\\*RowBox[{\\\"$Failed\\\", \\\"\
-\[LeftDoubleBracket]\\\", \\\"3\\\", \\\"\[RightDoubleBracket]\\\"}]\\) is \
-longer than depth of object.\"", 2, 453, 86, 19760331088638781695, "Local"},
-  "MessageTemplate"]], "Message", "MSG",
- CellChangeTimes->{3.951841278339539*^9},
- CellLabel->
-  "During evaluation of \
-In[453]:=",ExpressionUUID->"3bc485fe-98bd-4a67-89e1-cae5348a693b"],
-
-Cell[BoxData[
- TemplateBox[{
-  "Part", "partd", 
-   "\"Part specification \\!\\(\\*RowBox[{\\\"$Failed\\\", \\\"\
-\[LeftDoubleBracket]\\\", \\\"1\\\", \\\"\[RightDoubleBracket]\\\"}]\\) is \
-longer than depth of object.\"", 2, 453, 87, 19760331088638781695, "Local"},
-  "MessageTemplate"]], "Message", "MSG",
- CellChangeTimes->{3.9518412783422194`*^9},
- CellLabel->
-  "During evaluation of \
-In[453]:=",ExpressionUUID->"675db4cb-fc0a-497b-8134-acf18b37c823"],
-
-Cell[BoxData[
- TemplateBox[{
-  "Part", "partd", 
-   "\"Part specification \\!\\(\\*RowBox[{\\\"$Failed\\\", \\\"\
-\[LeftDoubleBracket]\\\", \\\"2\\\", \\\"\[RightDoubleBracket]\\\"}]\\) is \
-longer than depth of object.\"", 2, 453, 88, 19760331088638781695, "Local"},
-  "MessageTemplate"]], "Message", "MSG",
- CellChangeTimes->{3.9518412783508177`*^9},
- CellLabel->
-  "During evaluation of \
-In[453]:=",ExpressionUUID->"2ad14ec8-57e2-4199-80ae-421bfbbb64ca"],
-
-Cell[BoxData[
- TemplateBox[{
-  "General", "stop", 
-   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"Part\\\", \\\"::\\\", \
-\\\"partd\\\"}], \\\"MessageName\\\"]\\) will be suppressed during this \
-calculation.\"", 2, 453, 89, 19760331088638781695, "Local"},
-  "MessageTemplate"]], "Message", "MSG",
- CellChangeTimes->{3.9518412783527727`*^9},
- CellLabel->
-  "During evaluation of \
-In[453]:=",ExpressionUUID->"0fbdffff-7489-4837-af2f-b9fcb9aca214"]
-}, Open  ]]
+   3.952105675003916*^9},
+ CellLabel->"In[60]:=",ExpressionUUID->"c623a6f5-38f9-4631-8856-37522db5def5"]
 },
 WindowSize->{925, 951},
 WindowMargins->{{0, Automatic}, {Automatic, 3}},
@@ -872,15 +807,8 @@ Cell[12105, 338, 4077, 110, 199, "Input",ExpressionUUID->"9f486e4e-de69-4108-a47
 Cell[16185, 450, 3020, 72, 262, "Input",ExpressionUUID->"2b953e59-704d-4e2d-b4d3-1c17df19bd9f"],
 Cell[19208, 524, 163, 3, 30, "Input",ExpressionUUID->"526acb33-0846-431b-8450-b684b3bdc650"],
 Cell[19374, 529, 2111, 57, 274, "Input",ExpressionUUID->"67e2808a-adf2-416d-bcfa-75367e8b0f07"],
-Cell[21488, 588, 4714, 116, 199, "Input",ExpressionUUID->"6ff71708-25c6-45fe-86c2-c473ebaf2aea"],
-Cell[CellGroupData[{
-Cell[26227, 708, 3112, 67, 199, "Input",ExpressionUUID->"c623a6f5-38f9-4631-8856-37522db5def5"],
-Cell[29342, 777, 481, 11, 28, "Message",ExpressionUUID->"c3d4a597-be16-41ff-a9a8-17502ab1f223"],
-Cell[29826, 790, 456, 10, 28, "Message",ExpressionUUID->"3bc485fe-98bd-4a67-89e1-cae5348a693b"],
-Cell[30285, 802, 458, 10, 28, "Message",ExpressionUUID->"675db4cb-fc0a-497b-8134-acf18b37c823"],
-Cell[30746, 814, 458, 10, 28, "Message",ExpressionUUID->"2ad14ec8-57e2-4199-80ae-421bfbbb64ca"],
-Cell[31207, 826, 454, 10, 28, "Message",ExpressionUUID->"0fbdffff-7489-4837-af2f-b9fcb9aca214"]
-}, Open  ]]
+Cell[21488, 588, 4732, 115, 199, "Input",ExpressionUUID->"6ff71708-25c6-45fe-86c2-c473ebaf2aea"],
+Cell[26223, 705, 3134, 67, 199, "Input",ExpressionUUID->"c623a6f5-38f9-4631-8856-37522db5def5"]
 }
 ]
 *)
