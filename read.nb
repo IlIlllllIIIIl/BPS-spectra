@@ -1,0 +1,850 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     29601,        842]
+NotebookOptionsPosition[     26815,        794]
+NotebookOutlinePosition[     27207,        810]
+CellTagsIndexPosition[     27164,        807]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"triples", "=", 
+   RowBox[{"Import", "[", 
+    RowBox[{
+     RowBox[{"NotebookDirectory", "[", "]"}], "<>", 
+     "\"\<coprime_triples.csv\>\""}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"pairs", "=", 
+   RowBox[{"Import", "[", 
+    RowBox[{
+     RowBox[{"NotebookDirectory", "[", "]"}], "<>", 
+     "\"\<coprime_pairs.csv\>\""}], "]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.956755890491569*^9, 3.9567558997155952`*^9}, {
+  3.95678337303089*^9, 3.9567834154685173`*^9}},
+ CellLabel->
+  "In[159]:=",ExpressionUUID->"0783293a-bc55-49b6-a702-b0a373f70e7c"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"triples", "[", 
+  RowBox[{"[", "1", "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.956783408370146*^9, 3.9567834099166317`*^9}},
+ CellLabel->
+  "In[161]:=",ExpressionUUID->"81f7e5b1-11ca-4f2c-8789-b0637cd52245"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"2", ",", "3", ",", "5"}], "}"}]], "Output",
+ CellChangeTimes->{{3.956783410113617*^9, 3.956783418167388*^9}},
+ CellLabel->
+  "Out[161]=",ExpressionUUID->"a68ab75f-0567-450a-816f-162e5e6e4885"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"show", "[", 
+   RowBox[{"m_", ",", "p_", ",", 
+    RowBox[{"K_", ":", "\"\<K\>\""}]}], "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"r", ",", "pos", ",", "coef"}], "}"}], ",", 
+    RowBox[{
+     RowBox[{"r", "=", 
+      RowBox[{"p", "[", "\"\<r\>\"", "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"pos", "=", 
+      RowBox[{"p", "[", "\"\<pos\>\"", "]"}]}], ";", 
+     RowBox[{"coef", "=", 
+      RowBox[{"p", "[", "\"\<coef\>\"", "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"Do", "[", 
+      RowBox[{
+       RowBox[{"Print", "[", 
+        RowBox[{
+         RowBox[{"Subscript", "[", 
+          RowBox[{
+           RowBox[{"Superscript", "[", 
+            RowBox[{"\"\<\[CapitalPsi]\>\"", ",", 
+             RowBox[{"Row", "[", 
+              RowBox[{"{", 
+               RowBox[{"m", ",", "\"\<+\>\"", ",", "K"}], "}"}], "]"}]}], 
+            "]"}], ",", 
+           RowBox[{"r", "[", 
+            RowBox[{"[", "i", "]"}], "]"}]}], "]"}], ",", "\"\<=\>\"", ",", 
+         RowBox[{"Sum", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"Subscript", "[", 
+             RowBox[{"\"\<\[Psi]\>\"", ",", "m", ",", 
+              RowBox[{"pos", "[", 
+               RowBox[{"[", 
+                RowBox[{"i", ",", "j"}], "]"}], "]"}]}], "]"}], 
+            RowBox[{"coef", "[", 
+             RowBox[{"[", 
+              RowBox[{"i", ",", "j"}], "]"}], "]"}]}], ",", 
+           RowBox[{"{", 
+            RowBox[{"j", ",", "1", ",", 
+             RowBox[{"Length", "[", 
+              RowBox[{"pos", "[", 
+               RowBox[{"[", "i", "]"}], "]"}], "]"}]}], "}"}]}], "]"}]}], 
+        "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", "1", ",", 
+         RowBox[{"Length", "[", "r", "]"}]}], "}"}]}], "]"}], ";"}]}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.956782504156967*^9, 3.9567826821376047`*^9}, {
+  3.9567827721726017`*^9, 3.956782889748476*^9}, {3.956782957729813*^9, 
+  3.956782959224698*^9}, {3.956783789395364*^9, 3.9567837907578773`*^9}, {
+  3.956783868064499*^9, 3.956783974757456*^9}},
+ CellLabel->
+  "In[201]:=",ExpressionUUID->"305325bd-fb2f-4fcc-a925-aa0b393476f0"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"showtriple", "[", "triple_", "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"m", ",", "filename", ",", "p"}], "}"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"m", "=", 
+      RowBox[{"Times", "@@", "triple"}]}], ";", 
+     RowBox[{"filename", "=", 
+      RowBox[{
+       RowBox[{"NotebookDirectory", "[", "]"}], "<>", 
+       "\"\<data/seifert/projections/\>\"", "<>", 
+       RowBox[{"StringRiffle", "[", 
+        RowBox[{"triple", ",", "\"\<_\>\""}], "]"}], "<>", 
+       "\"\<.json\>\""}]}], ";", 
+     RowBox[{"p", "=", 
+      RowBox[{"Import", "[", 
+       RowBox[{"filename", ",", "\"\<RawJSON\>\""}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"show", "[", 
+      RowBox[{"m", ",", "p"}], "]"}], ";"}]}], "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"showpair", "[", "pair_", "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"m", ",", "ab", ",", "filename", ",", "p"}], "}"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"m", "=", 
+      RowBox[{"Times", "@@", "pair"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"ab", "=", 
+      RowBox[{"{", 
+       RowBox[{"\"\<a\>\"", ",", "\"\<b\>\""}], "}"}]}], ";", 
+     RowBox[{"Do", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"filename", "=", 
+         RowBox[{
+          RowBox[{"NotebookDirectory", "[", "]"}], "<>", 
+          "\"\<data/seifert/projections/\>\"", "<>", 
+          RowBox[{"StringRiffle", "[", 
+           RowBox[{"pair", ",", "\"\<_\>\""}], "]"}], "<>", 
+          RowBox[{"ab", "[", 
+           RowBox[{"[", "i", "]"}], "]"}], "<>", "\"\<.json\>\""}]}], ";", 
+        RowBox[{
+         RowBox[{"p", "[", "i", "]"}], "=", 
+         RowBox[{"Import", "[", 
+          RowBox[{"filename", ",", "\"\<RawJSON\>\""}], "]"}]}]}], ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", "1", ",", "2"}], "}"}]}], "]"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Do", "[", 
+      RowBox[{
+       RowBox[{"show", "[", 
+        RowBox[{"m", ",", 
+         RowBox[{"p", "[", "i", "]"}], ",", 
+         RowBox[{"pair", "[", 
+          RowBox[{"[", "i", "]"}], "]"}]}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", "1", ",", "2"}], "}"}]}], "]"}], ";"}]}], 
+   "]"}]}]}], "Input",
+ CellChangeTimes->{{3.9568254653748217`*^9, 3.956825527898677*^9}, {
+  3.956825580544321*^9, 3.9568256183482313`*^9}},
+ CellLabel->
+  "In[242]:=",ExpressionUUID->"6b2ba63a-4611-4d74-9df0-1789627f867f"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"showtriple", "[", 
+  RowBox[{"triples", "[", 
+   RowBox[{"[", "3", "]"}], "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.956825506507124*^9, 3.956825512582386*^9}},
+ CellLabel->
+  "In[241]:=",ExpressionUUID->"fff1904d-8023-4aec-aa99-d5df2cb3f17e"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   SubscriptBox[
+    TemplateBox[{"\"\[CapitalPsi]\"", 
+      TemplateBox[{"60", "\"+K\""}, "RowDefault"]},
+     "Superscript"], "1"], "\[InvisibleSpace]", "\<\"=\"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{
+    SubscriptBox["\<\"\[Psi]\"\>", 
+     RowBox[{"60", ",", "1"}]], "-", 
+    SubscriptBox["\<\"\[Psi]\"\>", 
+     RowBox[{"60", ",", "31"}]], "-", 
+    SubscriptBox["\<\"\[Psi]\"\>", 
+     RowBox[{"60", ",", "41"}]], "-", 
+    SubscriptBox["\<\"\[Psi]\"\>", 
+     RowBox[{"60", ",", "49"}]], "+", 
+    SubscriptBox["\<\"\[Psi]\"\>", 
+     RowBox[{"60", ",", "71"}]], "+", 
+    SubscriptBox["\<\"\[Psi]\"\>", 
+     RowBox[{"60", ",", "79"}]], "+", 
+    SubscriptBox["\<\"\[Psi]\"\>", 
+     RowBox[{"60", ",", "89"}]], "-", 
+    SubscriptBox["\<\"\[Psi]\"\>", 
+     RowBox[{"60", ",", "119"}]]}]}],
+  SequenceForm[
+   Subscript[
+    Superscript["\[CapitalPsi]", 
+     Row[{60, "+K"}]], 1], "=", Subscript["\[Psi]", 60, 1] - Subscript[
+   "\[Psi]", 60, 31] - Subscript["\[Psi]", 60, 41] - Subscript[
+   "\[Psi]", 60, 49] + Subscript["\[Psi]", 60, 71] + 
+   Subscript["\[Psi]", 60, 79] + Subscript["\[Psi]", 60, 89] - Subscript[
+   "\[Psi]", 60, 119]],
+  Editable->False]], "Print",
+ CellChangeTimes->{{3.956825512951858*^9, 3.956825531292053*^9}},
+ CellLabel->
+  "During evaluation of \
+In[241]:=",ExpressionUUID->"48047cd1-957a-4871-a0f8-c8de982f7c95"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   SubscriptBox[
+    TemplateBox[{"\"\[CapitalPsi]\"", 
+      TemplateBox[{"60", "\"+K\""}, "RowDefault"]},
+     "Superscript"], "2"], "\[InvisibleSpace]", "\<\"=\"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{
+    SubscriptBox["\<\"\[Psi]\"\>", 
+     RowBox[{"60", ",", "2"}]], "+", 
+    SubscriptBox["\<\"\[Psi]\"\>", 
+     RowBox[{"60", ",", "22"}]], "+", 
+    SubscriptBox["\<\"\[Psi]\"\>", 
+     RowBox[{"60", ",", "38"}]], "+", 
+    SubscriptBox["\<\"\[Psi]\"\>", 
+     RowBox[{"60", ",", "58"}]], "-", 
+    SubscriptBox["\<\"\[Psi]\"\>", 
+     RowBox[{"60", ",", "62"}]], "-", 
+    SubscriptBox["\<\"\[Psi]\"\>", 
+     RowBox[{"60", ",", "82"}]], "-", 
+    SubscriptBox["\<\"\[Psi]\"\>", 
+     RowBox[{"60", ",", "98"}]], "-", 
+    SubscriptBox["\<\"\[Psi]\"\>", 
+     RowBox[{"60", ",", "118"}]]}]}],
+  SequenceForm[
+   Subscript[
+    Superscript["\[CapitalPsi]", 
+     Row[{60, "+K"}]], 2], "=", Subscript["\[Psi]", 60, 2] + 
+   Subscript["\[Psi]", 60, 22] + Subscript["\[Psi]", 60, 38] + 
+   Subscript["\[Psi]", 60, 58] - Subscript["\[Psi]", 60, 62] - Subscript[
+   "\[Psi]", 60, 82] - Subscript["\[Psi]", 60, 98] - Subscript[
+   "\[Psi]", 60, 118]],
+  Editable->False]], "Print",
+ CellChangeTimes->{{3.956825512951858*^9, 3.956825531304895*^9}},
+ CellLabel->
+  "During evaluation of \
+In[241]:=",ExpressionUUID->"b7bbbdd7-67d4-46a7-9ccd-52a1f9d84f26"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   SubscriptBox[
+    TemplateBox[{"\"\[CapitalPsi]\"", 
+      TemplateBox[{"60", "\"+K\""}, "RowDefault"]},
+     "Superscript"], "7"], "\[InvisibleSpace]", "\<\"=\"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{
+    SubscriptBox["\<\"\[Psi]\"\>", 
+     RowBox[{"60", ",", "7"}]], "+", 
+    SubscriptBox["\<\"\[Psi]\"\>", 
+     RowBox[{"60", ",", "17"}]], "+", 
+    SubscriptBox["\<\"\[Psi]\"\>", 
+     RowBox[{"60", ",", "23"}]], "-", 
+    SubscriptBox["\<\"\[Psi]\"\>", 
+     RowBox[{"60", ",", "47"}]], "+", 
+    SubscriptBox["\<\"\[Psi]\"\>", 
+     RowBox[{"60", ",", "73"}]], "-", 
+    SubscriptBox["\<\"\[Psi]\"\>", 
+     RowBox[{"60", ",", "97"}]], "-", 
+    SubscriptBox["\<\"\[Psi]\"\>", 
+     RowBox[{"60", ",", "103"}]], "-", 
+    SubscriptBox["\<\"\[Psi]\"\>", 
+     RowBox[{"60", ",", "113"}]]}]}],
+  SequenceForm[
+   Subscript[
+    Superscript["\[CapitalPsi]", 
+     Row[{60, "+K"}]], 7], "=", Subscript["\[Psi]", 60, 7] + 
+   Subscript["\[Psi]", 60, 17] + Subscript["\[Psi]", 60, 23] - Subscript[
+   "\[Psi]", 60, 47] + Subscript["\[Psi]", 60, 73] - Subscript[
+   "\[Psi]", 60, 97] - Subscript["\[Psi]", 60, 103] - Subscript[
+   "\[Psi]", 60, 113]],
+  Editable->False]], "Print",
+ CellChangeTimes->{{3.956825512951858*^9, 3.9568255313165073`*^9}},
+ CellLabel->
+  "During evaluation of \
+In[241]:=",ExpressionUUID->"5c619448-ba94-4735-84a7-58303145de11"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   SubscriptBox[
+    TemplateBox[{"\"\[CapitalPsi]\"", 
+      TemplateBox[{"60", "\"+K\""}, "RowDefault"]},
+     "Superscript"], "11"], "\[InvisibleSpace]", "\<\"=\"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{
+    SubscriptBox["\<\"\[Psi]\"\>", 
+     RowBox[{"60", ",", "11"}]], "+", 
+    SubscriptBox["\<\"\[Psi]\"\>", 
+     RowBox[{"60", ",", "19"}]], "+", 
+    SubscriptBox["\<\"\[Psi]\"\>", 
+     RowBox[{"60", ",", "29"}]], "-", 
+    SubscriptBox["\<\"\[Psi]\"\>", 
+     RowBox[{"60", ",", "59"}]], "+", 
+    SubscriptBox["\<\"\[Psi]\"\>", 
+     RowBox[{"60", ",", "61"}]], "-", 
+    SubscriptBox["\<\"\[Psi]\"\>", 
+     RowBox[{"60", ",", "91"}]], "-", 
+    SubscriptBox["\<\"\[Psi]\"\>", 
+     RowBox[{"60", ",", "101"}]], "-", 
+    SubscriptBox["\<\"\[Psi]\"\>", 
+     RowBox[{"60", ",", "109"}]]}]}],
+  SequenceForm[
+   Subscript[
+    Superscript["\[CapitalPsi]", 
+     Row[{60, "+K"}]], 11], "=", Subscript["\[Psi]", 60, 11] + 
+   Subscript["\[Psi]", 60, 19] + Subscript["\[Psi]", 60, 29] - Subscript[
+   "\[Psi]", 60, 59] + Subscript["\[Psi]", 60, 61] - Subscript[
+   "\[Psi]", 60, 91] - Subscript["\[Psi]", 60, 101] - Subscript[
+   "\[Psi]", 60, 109]],
+  Editable->False]], "Print",
+ CellChangeTimes->{{3.956825512951858*^9, 3.956825531325177*^9}},
+ CellLabel->
+  "During evaluation of \
+In[241]:=",ExpressionUUID->"9e5a93f0-a5d0-4ab3-a5bc-f4f92a939e76"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   SubscriptBox[
+    TemplateBox[{"\"\[CapitalPsi]\"", 
+      TemplateBox[{"60", "\"+K\""}, "RowDefault"]},
+     "Superscript"], "13"], "\[InvisibleSpace]", "\<\"=\"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{
+    SubscriptBox["\<\"\[Psi]\"\>", 
+     RowBox[{"60", ",", "13"}]], "-", 
+    SubscriptBox["\<\"\[Psi]\"\>", 
+     RowBox[{"60", ",", "37"}]], "-", 
+    SubscriptBox["\<\"\[Psi]\"\>", 
+     RowBox[{"60", ",", "43"}]], "-", 
+    SubscriptBox["\<\"\[Psi]\"\>", 
+     RowBox[{"60", ",", "53"}]], "+", 
+    SubscriptBox["\<\"\[Psi]\"\>", 
+     RowBox[{"60", ",", "67"}]], "+", 
+    SubscriptBox["\<\"\[Psi]\"\>", 
+     RowBox[{"60", ",", "77"}]], "+", 
+    SubscriptBox["\<\"\[Psi]\"\>", 
+     RowBox[{"60", ",", "83"}]], "-", 
+    SubscriptBox["\<\"\[Psi]\"\>", 
+     RowBox[{"60", ",", "107"}]]}]}],
+  SequenceForm[
+   Subscript[
+    Superscript["\[CapitalPsi]", 
+     Row[{60, "+K"}]], 13], "=", Subscript["\[Psi]", 60, 13] - Subscript[
+   "\[Psi]", 60, 37] - Subscript["\[Psi]", 60, 43] - Subscript[
+   "\[Psi]", 60, 53] + Subscript["\[Psi]", 60, 67] + 
+   Subscript["\[Psi]", 60, 77] + Subscript["\[Psi]", 60, 83] - Subscript[
+   "\[Psi]", 60, 107]],
+  Editable->False]], "Print",
+ CellChangeTimes->{{3.956825512951858*^9, 3.9568255313335238`*^9}},
+ CellLabel->
+  "During evaluation of \
+In[241]:=",ExpressionUUID->"83545d5e-2457-4350-b8ad-98dbca3ee2a6"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   SubscriptBox[
+    TemplateBox[{"\"\[CapitalPsi]\"", 
+      TemplateBox[{"60", "\"+K\""}, "RowDefault"]},
+     "Superscript"], "14"], "\[InvisibleSpace]", "\<\"=\"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{
+    SubscriptBox["\<\"\[Psi]\"\>", 
+     RowBox[{"60", ",", "14"}]], "+", 
+    SubscriptBox["\<\"\[Psi]\"\>", 
+     RowBox[{"60", ",", "26"}]], "+", 
+    SubscriptBox["\<\"\[Psi]\"\>", 
+     RowBox[{"60", ",", "34"}]], "+", 
+    SubscriptBox["\<\"\[Psi]\"\>", 
+     RowBox[{"60", ",", "46"}]], "-", 
+    SubscriptBox["\<\"\[Psi]\"\>", 
+     RowBox[{"60", ",", "74"}]], "-", 
+    SubscriptBox["\<\"\[Psi]\"\>", 
+     RowBox[{"60", ",", "86"}]], "-", 
+    SubscriptBox["\<\"\[Psi]\"\>", 
+     RowBox[{"60", ",", "94"}]], "-", 
+    SubscriptBox["\<\"\[Psi]\"\>", 
+     RowBox[{"60", ",", "106"}]]}]}],
+  SequenceForm[
+   Subscript[
+    Superscript["\[CapitalPsi]", 
+     Row[{60, "+K"}]], 14], "=", Subscript["\[Psi]", 60, 14] + 
+   Subscript["\[Psi]", 60, 26] + Subscript["\[Psi]", 60, 34] + 
+   Subscript["\[Psi]", 60, 46] - Subscript["\[Psi]", 60, 74] - Subscript[
+   "\[Psi]", 60, 86] - Subscript["\[Psi]", 60, 94] - Subscript[
+   "\[Psi]", 60, 106]],
+  Editable->False]], "Print",
+ CellChangeTimes->{{3.956825512951858*^9, 3.956825531341487*^9}},
+ CellLabel->
+  "During evaluation of \
+In[241]:=",ExpressionUUID->"1ff29c33-2ac7-488a-ada6-1081bc893eac"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"showpair", "[", 
+  RowBox[{"pairs", "[", 
+   RowBox[{"[", "3", "]"}], "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.9568256245084467`*^9, 3.956825630431234*^9}},
+ CellLabel->
+  "In[244]:=",ExpressionUUID->"98538b57-40e6-4be5-89d9-b250643da807"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   SubscriptBox[
+    TemplateBox[{"\"\[CapitalPsi]\"", 
+      TemplateBox[{"12", "\"+\"", "3"}, "RowDefault"]},
+     "Superscript"], "1"], "\[InvisibleSpace]", "\<\"=\"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{
+    SubscriptBox["\<\"\[Psi]\"\>", 
+     RowBox[{"12", ",", "1"}]], "-", 
+    SubscriptBox["\<\"\[Psi]\"\>", 
+     RowBox[{"12", ",", "7"}]], "+", 
+    SubscriptBox["\<\"\[Psi]\"\>", 
+     RowBox[{"12", ",", "17"}]], "-", 
+    SubscriptBox["\<\"\[Psi]\"\>", 
+     RowBox[{"12", ",", "23"}]]}]}],
+  SequenceForm[
+   Subscript[
+    Superscript["\[CapitalPsi]", 
+     Row[{12, "+", 3}]], 1], "=", Subscript["\[Psi]", 12, 1] - Subscript[
+   "\[Psi]", 12, 7] + Subscript["\[Psi]", 12, 17] - Subscript[
+   "\[Psi]", 12, 23]],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.956825630650305*^9},
+ CellLabel->
+  "During evaluation of \
+In[244]:=",ExpressionUUID->"d7ab7380-c8ff-4379-ac58-ec013a6b21fa"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   SubscriptBox[
+    TemplateBox[{"\"\[CapitalPsi]\"", 
+      TemplateBox[{"12", "\"+\"", "3"}, "RowDefault"]},
+     "Superscript"], "2"], "\[InvisibleSpace]", "\<\"=\"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{
+    SubscriptBox["\<\"\[Psi]\"\>", 
+     RowBox[{"12", ",", "2"}]], "+", 
+    SubscriptBox["\<\"\[Psi]\"\>", 
+     RowBox[{"12", ",", "10"}]], "-", 
+    SubscriptBox["\<\"\[Psi]\"\>", 
+     RowBox[{"12", ",", "14"}]], "-", 
+    SubscriptBox["\<\"\[Psi]\"\>", 
+     RowBox[{"12", ",", "22"}]]}]}],
+  SequenceForm[
+   Subscript[
+    Superscript["\[CapitalPsi]", 
+     Row[{12, "+", 3}]], 2], "=", Subscript["\[Psi]", 12, 2] + 
+   Subscript["\[Psi]", 12, 10] - Subscript["\[Psi]", 12, 14] - Subscript[
+   "\[Psi]", 12, 22]],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.956825630661278*^9},
+ CellLabel->
+  "During evaluation of \
+In[244]:=",ExpressionUUID->"4a2fab05-f4f0-40eb-9f79-c75c55c815a9"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   SubscriptBox[
+    TemplateBox[{"\"\[CapitalPsi]\"", 
+      TemplateBox[{"12", "\"+\"", "3"}, "RowDefault"]},
+     "Superscript"], "3"], "\[InvisibleSpace]", "\<\"=\"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{"2", " ", 
+     SubscriptBox["\<\"\[Psi]\"\>", 
+      RowBox[{"12", ",", "3"}]]}], "-", 
+    RowBox[{"2", " ", 
+     SubscriptBox["\<\"\[Psi]\"\>", 
+      RowBox[{"12", ",", "21"}]]}]}]}],
+  SequenceForm[
+   Subscript[
+    Superscript["\[CapitalPsi]", 
+     Row[{12, "+", 3}]], 3], "=", 2 Subscript["\[Psi]", 12, 3] - 2 
+   Subscript["\[Psi]", 12, 21]],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9568256306718273`*^9},
+ CellLabel->
+  "During evaluation of \
+In[244]:=",ExpressionUUID->"432bd3f0-6a69-41f1-856f-906e7f08fb77"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   SubscriptBox[
+    TemplateBox[{"\"\[CapitalPsi]\"", 
+      TemplateBox[{"12", "\"+\"", "3"}, "RowDefault"]},
+     "Superscript"], "5"], "\[InvisibleSpace]", "\<\"=\"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{
+    SubscriptBox["\<\"\[Psi]\"\>", 
+     RowBox[{"12", ",", "5"}]], "-", 
+    SubscriptBox["\<\"\[Psi]\"\>", 
+     RowBox[{"12", ",", "11"}]], "+", 
+    SubscriptBox["\<\"\[Psi]\"\>", 
+     RowBox[{"12", ",", "13"}]], "-", 
+    SubscriptBox["\<\"\[Psi]\"\>", 
+     RowBox[{"12", ",", "19"}]]}]}],
+  SequenceForm[
+   Subscript[
+    Superscript["\[CapitalPsi]", 
+     Row[{12, "+", 3}]], 5], "=", Subscript["\[Psi]", 12, 5] - Subscript[
+   "\[Psi]", 12, 11] + Subscript["\[Psi]", 12, 13] - Subscript[
+   "\[Psi]", 12, 19]],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.956825630681864*^9},
+ CellLabel->
+  "During evaluation of \
+In[244]:=",ExpressionUUID->"3613a1c4-0a46-404f-b977-877a07204d70"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   SubscriptBox[
+    TemplateBox[{"\"\[CapitalPsi]\"", 
+      TemplateBox[{"12", "\"+\"", "3"}, "RowDefault"]},
+     "Superscript"], "6"], "\[InvisibleSpace]", "\<\"=\"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{"2", " ", 
+     SubscriptBox["\<\"\[Psi]\"\>", 
+      RowBox[{"12", ",", "6"}]]}], "-", 
+    RowBox[{"2", " ", 
+     SubscriptBox["\<\"\[Psi]\"\>", 
+      RowBox[{"12", ",", "18"}]]}]}]}],
+  SequenceForm[
+   Subscript[
+    Superscript["\[CapitalPsi]", 
+     Row[{12, "+", 3}]], 6], "=", 2 Subscript["\[Psi]", 12, 6] - 2 
+   Subscript["\[Psi]", 12, 18]],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.956825630688209*^9},
+ CellLabel->
+  "During evaluation of \
+In[244]:=",ExpressionUUID->"7dbec697-f913-4469-bc0a-35f2b5c8902e"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   SubscriptBox[
+    TemplateBox[{"\"\[CapitalPsi]\"", 
+      TemplateBox[{"12", "\"+\"", "3"}, "RowDefault"]},
+     "Superscript"], "9"], "\[InvisibleSpace]", "\<\"=\"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{"2", " ", 
+     SubscriptBox["\<\"\[Psi]\"\>", 
+      RowBox[{"12", ",", "9"}]]}], "-", 
+    RowBox[{"2", " ", 
+     SubscriptBox["\<\"\[Psi]\"\>", 
+      RowBox[{"12", ",", "15"}]]}]}]}],
+  SequenceForm[
+   Subscript[
+    Superscript["\[CapitalPsi]", 
+     Row[{12, "+", 3}]], 9], "=", 2 Subscript["\[Psi]", 12, 9] - 2 
+   Subscript["\[Psi]", 12, 15]],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9568256306943083`*^9},
+ CellLabel->
+  "During evaluation of \
+In[244]:=",ExpressionUUID->"6ffb9827-bf78-4bea-9d18-5068b0ed4a33"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   SubscriptBox[
+    TemplateBox[{"\"\[CapitalPsi]\"", 
+      TemplateBox[{"12", "\"+\"", "4"}, "RowDefault"]},
+     "Superscript"], "1"], "\[InvisibleSpace]", "\<\"=\"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{
+    SubscriptBox["\<\"\[Psi]\"\>", 
+     RowBox[{"12", ",", "1"}]], "+", 
+    SubscriptBox["\<\"\[Psi]\"\>", 
+     RowBox[{"12", ",", "7"}]], "-", 
+    SubscriptBox["\<\"\[Psi]\"\>", 
+     RowBox[{"12", ",", "17"}]], "-", 
+    SubscriptBox["\<\"\[Psi]\"\>", 
+     RowBox[{"12", ",", "23"}]]}]}],
+  SequenceForm[
+   Subscript[
+    Superscript["\[CapitalPsi]", 
+     Row[{12, "+", 4}]], 1], "=", Subscript["\[Psi]", 12, 1] + 
+   Subscript["\[Psi]", 12, 7] - Subscript["\[Psi]", 12, 17] - Subscript[
+   "\[Psi]", 12, 23]],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.956825630702676*^9},
+ CellLabel->
+  "During evaluation of \
+In[244]:=",ExpressionUUID->"94c21f0d-fe5c-4154-a6a4-8f444459feaa"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   SubscriptBox[
+    TemplateBox[{"\"\[CapitalPsi]\"", 
+      TemplateBox[{"12", "\"+\"", "4"}, "RowDefault"]},
+     "Superscript"], "2"], "\[InvisibleSpace]", "\<\"=\"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{
+    SubscriptBox["\<\"\[Psi]\"\>", 
+     RowBox[{"12", ",", "2"}]], "-", 
+    SubscriptBox["\<\"\[Psi]\"\>", 
+     RowBox[{"12", ",", "10"}]], "+", 
+    SubscriptBox["\<\"\[Psi]\"\>", 
+     RowBox[{"12", ",", "14"}]], "-", 
+    SubscriptBox["\<\"\[Psi]\"\>", 
+     RowBox[{"12", ",", "22"}]]}]}],
+  SequenceForm[
+   Subscript[
+    Superscript["\[CapitalPsi]", 
+     Row[{12, "+", 4}]], 2], "=", Subscript["\[Psi]", 12, 2] - Subscript[
+   "\[Psi]", 12, 10] + Subscript["\[Psi]", 12, 14] - Subscript[
+   "\[Psi]", 12, 22]],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.956825630710683*^9},
+ CellLabel->
+  "During evaluation of \
+In[244]:=",ExpressionUUID->"4e62a1a0-2497-4a97-ba34-68d05bd0b923"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   SubscriptBox[
+    TemplateBox[{"\"\[CapitalPsi]\"", 
+      TemplateBox[{"12", "\"+\"", "4"}, "RowDefault"]},
+     "Superscript"], "4"], "\[InvisibleSpace]", "\<\"=\"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{"2", " ", 
+     SubscriptBox["\<\"\[Psi]\"\>", 
+      RowBox[{"12", ",", "4"}]]}], "-", 
+    RowBox[{"2", " ", 
+     SubscriptBox["\<\"\[Psi]\"\>", 
+      RowBox[{"12", ",", "20"}]]}]}]}],
+  SequenceForm[
+   Subscript[
+    Superscript["\[CapitalPsi]", 
+     Row[{12, "+", 4}]], 4], "=", 2 Subscript["\[Psi]", 12, 4] - 2 
+   Subscript["\[Psi]", 12, 20]],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.956825630718719*^9},
+ CellLabel->
+  "During evaluation of \
+In[244]:=",ExpressionUUID->"421e4bb9-cd1d-4f0d-bc45-bdaef4050c1d"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   SubscriptBox[
+    TemplateBox[{"\"\[CapitalPsi]\"", 
+      TemplateBox[{"12", "\"+\"", "4"}, "RowDefault"]},
+     "Superscript"], "5"], "\[InvisibleSpace]", "\<\"=\"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{
+    SubscriptBox["\<\"\[Psi]\"\>", 
+     RowBox[{"12", ",", "5"}]], "+", 
+    SubscriptBox["\<\"\[Psi]\"\>", 
+     RowBox[{"12", ",", "11"}]], "-", 
+    SubscriptBox["\<\"\[Psi]\"\>", 
+     RowBox[{"12", ",", "13"}]], "-", 
+    SubscriptBox["\<\"\[Psi]\"\>", 
+     RowBox[{"12", ",", "19"}]]}]}],
+  SequenceForm[
+   Subscript[
+    Superscript["\[CapitalPsi]", 
+     Row[{12, "+", 4}]], 5], "=", Subscript["\[Psi]", 12, 5] + 
+   Subscript["\[Psi]", 12, 11] - Subscript["\[Psi]", 12, 13] - Subscript[
+   "\[Psi]", 12, 19]],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.956825630726747*^9},
+ CellLabel->
+  "During evaluation of \
+In[244]:=",ExpressionUUID->"78b24364-474b-4b23-b462-461f4e0b6a3e"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   SubscriptBox[
+    TemplateBox[{"\"\[CapitalPsi]\"", 
+      TemplateBox[{"12", "\"+\"", "4"}, "RowDefault"]},
+     "Superscript"], "8"], "\[InvisibleSpace]", "\<\"=\"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{"2", " ", 
+     SubscriptBox["\<\"\[Psi]\"\>", 
+      RowBox[{"12", ",", "8"}]]}], "-", 
+    RowBox[{"2", " ", 
+     SubscriptBox["\<\"\[Psi]\"\>", 
+      RowBox[{"12", ",", "16"}]]}]}]}],
+  SequenceForm[
+   Subscript[
+    Superscript["\[CapitalPsi]", 
+     Row[{12, "+", 4}]], 8], "=", 2 Subscript["\[Psi]", 12, 8] - 2 
+   Subscript["\[Psi]", 12, 16]],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.956825630733433*^9},
+ CellLabel->
+  "During evaluation of \
+In[244]:=",ExpressionUUID->"a18b1fbe-74f5-4374-9e84-aa92f1b1fe20"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"Do", "[", 
+  RowBox[{
+   RowBox[{"rr", "=", 
+    RowBox[{"r", "[", 
+     RowBox[{"[", "i", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+   RowBox[{"filename", "=", 
+    RowBox[{
+    "\"\</Users/lithium/Downloads/BPS-spectra/data/seifert/projections/\>\"", 
+     "<>", 
+     RowBox[{"StringRiffle", "[", 
+      RowBox[{"triple", ",", "\"\<_\>\""}], "]"}], "<>", "\"\<.json\>\""}]}], 
+   ";", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"ppsi", "[", 
+     RowBox[{"m", ",", 
+      RowBox[{"pos", "[", 
+       RowBox[{"[", 
+        RowBox[{"i", ",", "j"}], "]"}], "]"}]}], "]"}], "=", 
+    RowBox[{
+     RowBox[{"Import", "[", 
+      RowBox[{"filename", ",", "\"\<RawJSON\>\""}], "]"}], 
+     "\[IndentingNewLine]", 
+     RowBox[{"Sum", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Subscript", "[", 
+         RowBox[{"\"\<\[Psi]\>\"", ",", "m", ",", 
+          RowBox[{"pos", "[", 
+           RowBox[{"[", 
+            RowBox[{"i", ",", "j"}], "]"}], "]"}]}], "]"}], 
+        RowBox[{"coef", "[", 
+         RowBox[{"[", 
+          RowBox[{"i", ",", "j"}], "]"}], "]"}]}], ",", 
+       RowBox[{"{", 
+        RowBox[{"j", ",", "1", ",", 
+         RowBox[{"Length", "[", 
+          RowBox[{"pos", "[", 
+           RowBox[{"[", "i", "]"}], "]"}], "]"}]}], "}"}]}], 
+      "]"}]}]}]}]}]], "Input",
+ CellChangeTimes->{{3.956783081586808*^9, 3.956783180936028*^9}, {
+  3.956783213014366*^9, 
+  3.956783218267187*^9}},ExpressionUUID->"ce8b4b0d-fd79-42c1-9674-\
+5695b1bca7b6"]
+},
+WindowSize->{808, 870},
+WindowMargins->{{Automatic, 325}, {Automatic, 3}},
+FrontEndVersion->"13.3 for Mac OS X ARM (64-bit) (June 3, 2023)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"4f5ef123-3669-44f4-bf07-64e268b41253"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 614, 16, 52, "Input",ExpressionUUID->"0783293a-bc55-49b6-a702-b0a373f70e7c"],
+Cell[CellGroupData[{
+Cell[1197, 40, 234, 5, 30, "Input",ExpressionUUID->"81f7e5b1-11ca-4f2c-8789-b0637cd52245"],
+Cell[1434, 47, 232, 5, 34, "Output",ExpressionUUID->"a68ab75f-0567-450a-816f-162e5e6e4885"]
+}, Open  ]],
+Cell[1681, 55, 2196, 56, 115, "Input",ExpressionUUID->"305325bd-fb2f-4fcc-a925-aa0b393476f0"],
+Cell[3880, 113, 2533, 68, 283, "Input",ExpressionUUID->"6b2ba63a-4611-4d74-9df0-1789627f867f"],
+Cell[CellGroupData[{
+Cell[6438, 185, 270, 6, 30, "Input",ExpressionUUID->"fff1904d-8023-4aec-aa99-d5df2cb3f17e"],
+Cell[CellGroupData[{
+Cell[6733, 195, 1403, 37, 27, "Print",ExpressionUUID->"48047cd1-957a-4871-a0f8-c8de982f7c95"],
+Cell[8139, 234, 1403, 37, 27, "Print",ExpressionUUID->"b7bbbdd7-67d4-46a7-9ccd-52a1f9d84f26"],
+Cell[9545, 273, 1407, 37, 27, "Print",ExpressionUUID->"5c619448-ba94-4735-84a7-58303145de11"],
+Cell[10955, 312, 1409, 37, 27, "Print",ExpressionUUID->"9e5a93f0-a5d0-4ab3-a5bc-f4f92a939e76"],
+Cell[12367, 351, 1409, 37, 27, "Print",ExpressionUUID->"83545d5e-2457-4350-b8ad-98dbca3ee2a6"],
+Cell[13779, 390, 1407, 37, 27, "Print",ExpressionUUID->"1ff29c33-2ac7-488a-ada6-1081bc893eac"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[15235, 433, 268, 6, 30, "Input",ExpressionUUID->"98538b57-40e6-4be5-89d9-b250643da807"],
+Cell[CellGroupData[{
+Cell[15528, 443, 953, 27, 27, "Print",ExpressionUUID->"d7ab7380-c8ff-4379-ac58-ec013a6b21fa"],
+Cell[16484, 472, 955, 27, 27, "Print",ExpressionUUID->"4a2fab05-f4f0-40eb-9f79-c75c55c815a9"],
+Cell[17442, 501, 801, 24, 27, "Print",ExpressionUUID->"432bd3f0-6a69-41f1-856f-906e7f08fb77"],
+Cell[18246, 527, 955, 27, 27, "Print",ExpressionUUID->"3613a1c4-0a46-404f-b977-877a07204d70"],
+Cell[19204, 556, 799, 24, 27, "Print",ExpressionUUID->"7dbec697-f913-4469-bc0a-35f2b5c8902e"],
+Cell[20006, 582, 801, 24, 27, "Print",ExpressionUUID->"6ffb9827-bf78-4bea-9d18-5068b0ed4a33"],
+Cell[20810, 608, 953, 27, 27, "Print",ExpressionUUID->"94c21f0d-fe5c-4154-a6a4-8f444459feaa"],
+Cell[21766, 637, 955, 27, 27, "Print",ExpressionUUID->"4e62a1a0-2497-4a97-ba34-68d05bd0b923"],
+Cell[22724, 666, 799, 24, 27, "Print",ExpressionUUID->"421e4bb9-cd1d-4f0d-bc45-bdaef4050c1d"],
+Cell[23526, 692, 955, 27, 27, "Print",ExpressionUUID->"78b24364-474b-4b23-b462-461f4e0b6a3e"],
+Cell[24484, 721, 799, 24, 27, "Print",ExpressionUUID->"a18b1fbe-74f5-4374-9e84-aa92f1b1fe20"]
+}, Open  ]]
+}, Open  ]],
+Cell[25310, 749, 1501, 43, 115, "Input",ExpressionUUID->"ce8b4b0d-fd79-42c1-9674-5695b1bca7b6"]
+}
+]
+*)
+
