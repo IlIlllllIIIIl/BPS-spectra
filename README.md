@@ -1,1 +1,3 @@
-The q-series up to the 601-st coprime triples have been generated and saved in data folder. The coprime triples are listed in csv file in the order of m.
+Given a positive integer $m$, consider when it can be decomposed into product of coprime integers, an irreducible subrepresentation of the metaplectic double cover $SL(2, \mathbb{Z})$ of $SL(2, \mathbb{Z})$ on a rank one latticeonce can be obtained once certain subgroup of $Ex_m$, the group of exact divisors, is specified.
+
+We have generated data for $m$'s that can be decomposed into product of two and three corprime integers. When $m=p_1p_2p_3$, basis of the representation labeled by $K={1,p_1p_2,p_2p_3,p3p_1}$ can be decomposed into linear combination of (false-)theta functions, and the projection information is saved `data/seifert/projections`, where `.json` files are titled by the three coprime integers. 
