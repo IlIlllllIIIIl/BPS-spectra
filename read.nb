@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     29601,        842]
-NotebookOptionsPosition[     26815,        794]
-NotebookOutlinePosition[     27207,        810]
-CellTagsIndexPosition[     27164,        807]
+NotebookDataLength[     45025,       1257]
+NotebookOptionsPosition[     40057,       1173]
+NotebookOutlinePosition[     40449,       1189]
+CellTagsIndexPosition[     40406,       1186]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -747,53 +747,432 @@ In[244]:=",ExpressionUUID->"a18b1fbe-74f5-4374-9e84-aa92f1b1fe20"]
 }, Open  ]]
 }, Open  ]],
 
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"total", "=", "0"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Do", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"pair", "=", 
+     RowBox[{"pairs", "[", 
+      RowBox[{"[", "j", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"Do", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"filename", "=", 
+        RowBox[{
+         RowBox[{"NotebookDirectory", "[", "]"}], "<>", 
+         "\"\<data/seifert/projections/\>\"", "<>", 
+         RowBox[{"StringRiffle", "[", 
+          RowBox[{"pair", ",", "\"\<_\>\""}], "]"}], "<>", 
+         RowBox[{"ab", "[", 
+          RowBox[{"[", "i", "]"}], "]"}], "<>", "\"\<.json\>\""}]}], ";", 
+       RowBox[{
+        RowBox[{"p", "[", "i", "]"}], "=", 
+        RowBox[{"Import", "[", 
+         RowBox[{"filename", ",", "\"\<RawJSON\>\""}], "]"}]}]}], ",", 
+      RowBox[{"{", 
+       RowBox[{"i", ",", "1", ",", "2"}], "}"}]}], "]"}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"total", "+=", 
+     RowBox[{"Sum", "[", 
+      RowBox[{
+       RowBox[{"Length", "[", 
+        RowBox[{
+         RowBox[{"p", "[", "i", "]"}], "[", "\"\<r\>\"", "]"}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", "1", ",", "2"}], "}"}]}], "]"}]}]}], ",", 
+   RowBox[{"{", 
+    RowBox[{"j", ",", "1", ",", "500"}], "}"}]}], "\[IndentingNewLine]", 
+  "]"}]}], "Input",
+ CellChangeTimes->{{3.956827572074532*^9, 3.9568277137612247`*^9}},
+ CellLabel->
+  "In[254]:=",ExpressionUUID->"ae9cd32f-7797-4484-b447-990923463287"],
+
+Cell[BoxData[
+ RowBox[{"Do", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"filename", "=", 
+     RowBox[{
+      RowBox[{"NotebookDirectory", "[", "]"}], "<>", "\"\<data/theta/\>\"", "<>", 
+      RowBox[{"ToString", "[", "m", "]"}], "<>", "\"\<_\>\"", "<>", 
+      RowBox[{"ToString", "[", "r", "]"}], "<>", "\"\<.json\>\""}]}], ";", 
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{"!", 
+       RowBox[{"FileExistsQ", "[", "filename", "]"}]}], ",", 
+      RowBox[{
+       RowBox[{"psimr", "=", 
+        RowBox[{"psi", "[", 
+         RowBox[{"m", ",", "r", ",", "50"}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Export", "[", 
+        RowBox[{"filename", ",", 
+         RowBox[{"<|", 
+          RowBox[{
+           RowBox[{"\"\<pref\>\"", "->", 
+            RowBox[{"psimr", "[", 
+             RowBox[{"[", "1", "]"}], "]"}]}], ",", 
+           RowBox[{"\"\<signs\>\"", "->", 
+            RowBox[{"psimr", "[", 
+             RowBox[{"[", "2", "]"}], "]"}]}], ",", 
+           RowBox[{"\"\<expo\>\"", "->", 
+            RowBox[{"psimr", "[", 
+             RowBox[{"[", "3", "]"}], "]"}]}]}], "|>"}]}], "]"}]}]}], "]"}]}],
+    ",", 
+   RowBox[{"{", 
+    RowBox[{"m", ",", "1", ",", " ", "150"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"r", ",", "0", ",", 
+     RowBox[{"m", "-", "1"}]}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.956830702412228*^9, 3.9568307301097*^9}, {
+   3.95683076446805*^9, 3.956830868246076*^9}, {3.9568309104456787`*^9, 
+   3.9568309577008677`*^9}, {3.956831799181383*^9, 3.956831800025361*^9}, {
+   3.956832050726811*^9, 3.9568320779073057`*^9}, {3.956832893329556*^9, 
+   3.956832894866419*^9}, {3.956833262450322*^9, 3.956833264233371*^9}, {
+   3.956834959197681*^9, 3.9568349653887*^9}, 3.956835015123011*^9},
+ CellLabel->
+  "In[302]:=",ExpressionUUID->"7fa76fce-105f-4cb4-bb1b-0ac1dacab1b1"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"expo", "=", 
+   RowBox[{"{", "}"}]}], ";", 
+  RowBox[{"mr", "=", 
+   RowBox[{"{", "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Do", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"filename", "=", 
+     RowBox[{
+      RowBox[{"NotebookDirectory", "[", "]"}], "<>", "\"\<data/theta/\>\"", "<>", 
+      RowBox[{"ToString", "[", "m", "]"}], "<>", "\"\<_\>\"", "<>", 
+      RowBox[{"ToString", "[", "r", "]"}], "<>", "\"\<.json\>\""}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"s", "=", 
+     RowBox[{"Import", "[", 
+      RowBox[{"filename", ",", "\"\<RawJSON\>\""}], "]"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"AppendTo", "[", 
+     RowBox[{"expo", ",", 
+      RowBox[{
+       RowBox[{"Take", "[", 
+        RowBox[{
+         RowBox[{"s", "[", "\"\<signs\>\"", "]"}], ",", "20"}], "]"}], "*", 
+       RowBox[{"Take", "[", 
+        RowBox[{
+         RowBox[{"s", "[", "\"\<expo\>\"", "]"}], ",", "20"}], "]"}]}]}], 
+     "]"}], ";", 
+    RowBox[{"AppendTo", "[", 
+     RowBox[{"mr", ",", 
+      RowBox[{"{", 
+       RowBox[{"m", ",", "r"}], "}"}]}], "]"}]}], ",", 
+   RowBox[{"{", 
+    RowBox[{"m", ",", "1", ",", "150"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"r", ",", "0", ",", 
+     RowBox[{"m", "-", "1"}]}], "}"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.956834005427149*^9, 3.956834028338233*^9}, {
+  3.9568341937349854`*^9, 3.9568342063019323`*^9}, {3.956834384724345*^9, 
+  3.9568343933800497`*^9}, {3.956834664302642*^9, 3.956834713088784*^9}, {
+  3.956834764645673*^9, 3.9568348633507757`*^9}, {3.956835057491123*^9, 
+  3.956835060286806*^9}},
+ CellLabel->
+  "In[303]:=",ExpressionUUID->"c110f201-7b86-43f3-8c3d-eb1ee3b8f167"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"mr", "=", 
+   RowBox[{"{", "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Do", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"triple", "=", 
+     RowBox[{"triples", "[", 
+      RowBox[{"[", "i", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"m", "=", 
+     RowBox[{"Times", "@@", "triple"}]}], ";", 
+    RowBox[{"filename", "=", 
+     RowBox[{
+      RowBox[{"NotebookDirectory", "[", "]"}], "<>", 
+      "\"\<data/seifert/projections/\>\"", "<>", 
+      RowBox[{"StringRiffle", "[", 
+       RowBox[{"triple", ",", "\"\<_\>\""}], "]"}], "<>", "\"\<.json\>\""}]}],
+     ";", 
+    RowBox[{"rs", "=", 
+     RowBox[{
+      RowBox[{"Import", "[", 
+       RowBox[{"filename", ",", "\"\<RawJSON\>\""}], "]"}], "[", "\"\<r\>\"", 
+      "]"}]}], ";", 
+    RowBox[{"Do", "[", 
+     RowBox[{
+      RowBox[{"AppendTo", "[", 
+       RowBox[{"mr", ",", 
+        RowBox[{"{", 
+         RowBox[{"m", ",", 
+          RowBox[{"rs", "[", 
+           RowBox[{"[", "j", "]"}], "]"}]}], "}"}]}], "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"j", ",", "1", ",", 
+        RowBox[{"Length", "[", "rs", "]"}]}], "}"}]}], "]"}]}], ",", 
+   RowBox[{"{", 
+    RowBox[{"i", ",", "1", ",", "601"}], "}"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.956839903203977*^9, 3.956840017773099*^9}, {
+  3.9568401505190563`*^9, 3.956840157234624*^9}, {3.956840262915629*^9, 
+  3.956840270466919*^9}, {3.956840323587453*^9, 3.956840349194092*^9}, {
+  3.956842982089279*^9, 3.9568429826731977`*^9}},
+ CellLabel->
+  "In[350]:=",ExpressionUUID->"310ac7c8-690f-4f17-9a9a-19da055f219b"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"expos", "=", 
+   RowBox[{"{", "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Do", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"m", ",", "r"}], "}"}], "=", 
+     RowBox[{"mr", "[", 
+      RowBox[{"[", "i", "]"}], "]"}]}], ";", 
+    RowBox[{"filename", "=", 
+     RowBox[{
+      RowBox[{"NotebookDirectory", "[", "]"}], "<>", "\"\<data/theta/\>\"", "<>", 
+      RowBox[{"ToString", "[", "m", "]"}], "<>", "\"\<_\>\"", "<>", 
+      RowBox[{"ToString", "[", "r", "]"}], "<>", "\"\<.json\>\""}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"s", "=", 
+     RowBox[{"Import", "[", 
+      RowBox[{"filename", ",", "\"\<RawJSON\>\""}], "]"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"AppendTo", "[", 
+     RowBox[{"expos", ",", 
+      RowBox[{
+       RowBox[{"Take", "[", 
+        RowBox[{
+         RowBox[{"s", "[", "\"\<signs\>\"", "]"}], ",", "20"}], "]"}], "*", 
+       RowBox[{"Take", "[", 
+        RowBox[{
+         RowBox[{"s", "[", "\"\<expo\>\"", "]"}], ",", "20"}], "]"}]}]}], 
+     "]"}]}], ",", 
+   RowBox[{"{", 
+    RowBox[{"i", ",", "1", ",", 
+     RowBox[{"Length", "[", "mr", "]"}]}], "}"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.9568403612209272`*^9, 3.9568404097979527`*^9}, {
+  3.956840471633482*^9, 3.9568404804226418`*^9}, {3.956840517129176*^9, 
+  3.956840593040266*^9}},
+ CellLabel->
+  "In[336]:=",ExpressionUUID->"7aefb89d-0b25-44ca-bbd0-c18e3f77d6a7"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Export", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"NotebookDirectory", "[", "]"}], "<>", 
+    "\"\<psimr_new_x.csv\>\""}], ",", "expos"}], "]"}]], "Input",
+ CellChangeTimes->{{3.956840621957006*^9, 3.956840709574277*^9}},
+ CellLabel->
+  "In[339]:=",ExpressionUUID->"00c853a4-d4db-4be1-87dd-0a8b63b4c689"],
+
+Cell[BoxData["\<\"/Users/lithium/Downloads/BPS-spectra/psimr_new_x.csv\"\>"], \
+"Output",
+ CellChangeTimes->{3.956840728719058*^9},
+ CellLabel->
+  "Out[339]=",ExpressionUUID->"eb5973ab-ee2c-414b-b744-4d116b01e70a"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Export", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"NotebookDirectory", "[", "]"}], "<>", 
+    "\"\<psimr_new_y.csv\>\""}], ",", "mr"}], "]"}]], "Input",
+ CellChangeTimes->{{3.9568407358759117`*^9, 3.95684073729774*^9}},
+ CellLabel->
+  "In[340]:=",ExpressionUUID->"6813443c-375c-44c3-a71c-ae16286141b6"],
+
+Cell[BoxData["\<\"/Users/lithium/Downloads/BPS-spectra/psimr_new_y.csv\"\>"], \
+"Output",
+ CellChangeTimes->{3.956840737758853*^9},
+ CellLabel->
+  "Out[340]=",ExpressionUUID->"9fd4f94e-91a5-46c6-8f43-cb0da010612c"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"expos", "//", "Dimensions"}]], "Input",
+ CellChangeTimes->{{3.95684057780125*^9, 3.956840584802456*^9}},
+ CellLabel->
+  "In[338]:=",ExpressionUUID->"b3003a8b-0d8e-472a-a223-1c9e893a6446"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"10010", ",", "20"}], "}"}]], "Output",
+ CellChangeTimes->{3.9568406124731073`*^9},
+ CellLabel->
+  "Out[338]=",ExpressionUUID->"4f3b7388-5d30-424f-abef-fcbf55226424"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"triple", "=", 
+   RowBox[{"triples", "[", 
+    RowBox[{"[", "1", "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"m", "=", 
+   RowBox[{"Times", "@@", "triple"}]}], ";", 
+  RowBox[{"filename", "=", 
+   RowBox[{
+    RowBox[{"NotebookDirectory", "[", "]"}], "<>", 
+    "\"\<data/seifert/projections/\>\"", "<>", 
+    RowBox[{"StringRiffle", "[", 
+     RowBox[{"triple", ",", "\"\<_\>\""}], "]"}], "<>", "\"\<.json\>\""}]}], 
+  ";", 
+  RowBox[{"rs", "=", 
+   RowBox[{
+    RowBox[{"Import", "[", 
+     RowBox[{"filename", ",", "\"\<RawJSON\>\""}], "]"}], "[", "\"\<r\>\"", 
+    "]"}]}]}]}], "Input",
+ CellChangeTimes->{{3.9568399630983257`*^9, 3.9568399811290827`*^9}},
+ CellLabel->
+  "In[311]:=",ExpressionUUID->"41737b60-04fa-4566-94a2-3c0a0c310166"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"1", ",", "7"}], "}"}]], "Output",
+ CellChangeTimes->{{3.956839963577462*^9, 3.956839981375237*^9}},
+ CellLabel->
+  "Out[312]=",ExpressionUUID->"75b8d0a6-91b6-4302-a9fd-ce5c247ec37f"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Sum", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Times", "@@", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"triples", "[", 
+        RowBox[{"[", "i", "]"}], "]"}], "-", "1"}], ")"}]}], "/", "4"}], ",", 
+   
+   RowBox[{"{", 
+    RowBox[{"i", ",", "1", ",", "601"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.956840272839592*^9, 3.956840313529101*^9}, {
+  3.9568422846948557`*^9, 3.9568423071548853`*^9}},
+ CellLabel->
+  "In[349]:=",ExpressionUUID->"242b6db7-2231-4c9d-92c3-a11dbdae7bf9"],
+
+Cell[BoxData["62020"], "Output",
+ CellChangeTimes->{
+  3.956840313817069*^9, {3.956842284980804*^9, 3.956842307643766*^9}},
+ CellLabel->
+  "Out[349]=",ExpressionUUID->"697e2518-82cd-4935-8eb6-6e58c64d3144"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
 Cell[BoxData[
  RowBox[{"Do", "[", 
   RowBox[{
-   RowBox[{"rr", "=", 
-    RowBox[{"r", "[", 
-     RowBox[{"[", "i", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
-   RowBox[{"filename", "=", 
-    RowBox[{
-    "\"\</Users/lithium/Downloads/BPS-spectra/data/seifert/projections/\>\"", 
-     "<>", 
-     RowBox[{"StringRiffle", "[", 
-      RowBox[{"triple", ",", "\"\<_\>\""}], "]"}], "<>", "\"\<.json\>\""}]}], 
-   ";", "\[IndentingNewLine]", 
    RowBox[{
-    RowBox[{"ppsi", "[", 
-     RowBox[{"m", ",", 
-      RowBox[{"pos", "[", 
-       RowBox[{"[", 
-        RowBox[{"i", ",", "j"}], "]"}], "]"}]}], "]"}], "=", 
-    RowBox[{
-     RowBox[{"Import", "[", 
-      RowBox[{"filename", ",", "\"\<RawJSON\>\""}], "]"}], 
-     "\[IndentingNewLine]", 
-     RowBox[{"Sum", "[", 
+    RowBox[{"triple", "=", 
+     RowBox[{"triples", "[", 
+      RowBox[{"[", "i", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"filename", "=", 
+     RowBox[{
+      RowBox[{"NotebookDirectory", "[", "]"}], "<>", 
+      "\"\<data/seifert/projections/\>\"", "<>", 
+      RowBox[{"StringRiffle", "[", 
+       RowBox[{"triple", ",", "\"\<_\>\""}], "]"}], "<>", "\"\<.json\>\""}]}],
+     ";", "\[IndentingNewLine]", 
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{"!", 
+       RowBox[{"FileExistsQ", "[", "filename", "]"}]}], ",", 
+      "\[IndentingNewLine]", 
       RowBox[{
-       RowBox[{
-        RowBox[{"Subscript", "[", 
-         RowBox[{"\"\<\[Psi]\>\"", ",", "m", ",", 
-          RowBox[{"pos", "[", 
-           RowBox[{"[", 
-            RowBox[{"i", ",", "j"}], "]"}], "]"}]}], "]"}], 
-        RowBox[{"coef", "[", 
-         RowBox[{"[", 
-          RowBox[{"i", ",", "j"}], "]"}], "]"}]}], ",", 
-       RowBox[{"{", 
-        RowBox[{"j", ",", "1", ",", 
-         RowBox[{"Length", "[", 
-          RowBox[{"pos", "[", 
-           RowBox[{"[", "i", "]"}], "]"}], "]"}]}], "}"}]}], 
-      "]"}]}]}]}]}]], "Input",
- CellChangeTimes->{{3.956783081586808*^9, 3.956783180936028*^9}, {
-  3.956783213014366*^9, 
-  3.956783218267187*^9}},ExpressionUUID->"ce8b4b0d-fd79-42c1-9674-\
-5695b1bca7b6"]
+       RowBox[{"m", "=", 
+        RowBox[{"Times", "@@", "triple"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"p", "=", 
+        RowBox[{"proj", "[", 
+         RowBox[{"m", ",", 
+          RowBox[{"ktriple", "[", "triple", "]"}]}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"data", "=", 
+        RowBox[{"flatproj", "[", "p", "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"r", "=", 
+        RowBox[{"data", "[", 
+         RowBox[{"[", "1", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"Export", "[", 
+        RowBox[{"filename", ",", 
+         RowBox[{"<|", 
+          RowBox[{
+           RowBox[{"\"\<r\>\"", "->", 
+            RowBox[{"data", "[", 
+             RowBox[{"[", "1", "]"}], "]"}]}], ",", 
+           RowBox[{"\"\<pos\>\"", "->", 
+            RowBox[{"data", "[", 
+             RowBox[{"[", "2", "]"}], "]"}]}], ",", 
+           RowBox[{"\"\<coef\>\"", "->", 
+            RowBox[{"data", "[", 
+             RowBox[{"[", "3", "]"}], "]"}]}]}], "|>"}]}], "]"}]}]}], "]"}]}],
+    ",", 
+   RowBox[{"{", 
+    RowBox[{"i", ",", "500", ",", "601"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.956844002058969*^9, 3.956844004752652*^9}, {
+  3.9568441788006763`*^9, 3.956844250911175*^9}, {3.956844296672555*^9, 
+  3.95684430016761*^9}},
+ CellLabel->
+  "In[357]:=",ExpressionUUID->"5ae6e905-11fa-468b-b2f0-3847889ff1e2"],
+
+Cell[BoxData["$Aborted"], "Output",
+ CellChangeTimes->{3.956844373947331*^9, 3.9568474542413473`*^9},
+ CellLabel->
+  "Out[357]=",ExpressionUUID->"d0c958d6-525d-4a64-ac7b-9cd22e87f580"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["filename"], "Input",
+ CellChangeTimes->{{3.956844374787723*^9, 3.956844376176509*^9}},
+ CellLabel->
+  "In[358]:=",ExpressionUUID->"d403a168-16bb-4986-bc42-6d0db474bc89"],
+
+Cell[BoxData["\<\"/Users/lithium/Downloads/BPS-spectra/data/seifert/\
+projections/2_13_47.json\"\>"], "Output",
+ CellChangeTimes->{3.956844376479496*^9, 3.956847456367115*^9},
+ CellLabel->
+  "Out[358]=",ExpressionUUID->"7c6ec4b9-bc8d-4b42-bdda-56d18fe2879e"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["triple"], "Input",
+ CellChangeTimes->{{3.956847494998857*^9, 3.9568474972652483`*^9}},
+ CellLabel->
+  "In[360]:=",ExpressionUUID->"d21a30ea-d5d3-46d2-914a-e2feb746b85d"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"2", ",", "13", ",", "47"}], "}"}]], "Output",
+ CellChangeTimes->{{3.9568474957868023`*^9, 3.9568474975380287`*^9}},
+ CellLabel->
+  "Out[360]=",ExpressionUUID->"5acb8a6d-7789-4041-a540-c6b1f30da3d2"]
+}, Open  ]]
 },
 WindowSize->{808, 870},
-WindowMargins->{{Automatic, 325}, {Automatic, 3}},
+WindowMargins->{{Automatic, 246}, {Automatic, 3}},
 FrontEndVersion->"13.3 for Mac OS X ARM (64-bit) (June 3, 2023)",
 StyleDefinitions->"Default.nb",
 ExpressionUUID->"4f5ef123-3669-44f4-bf07-64e268b41253"
@@ -843,7 +1222,43 @@ Cell[23526, 692, 955, 27, 27, "Print",ExpressionUUID->"78b24364-474b-4b23-b462-4
 Cell[24484, 721, 799, 24, 27, "Print",ExpressionUUID->"a18b1fbe-74f5-4374-9e84-aa92f1b1fe20"]
 }, Open  ]]
 }, Open  ]],
-Cell[25310, 749, 1501, 43, 115, "Input",ExpressionUUID->"ce8b4b0d-fd79-42c1-9674-5695b1bca7b6"]
+Cell[25310, 749, 1491, 40, 157, "Input",ExpressionUUID->"ae9cd32f-7797-4484-b447-990923463287"],
+Cell[26804, 791, 1870, 44, 136, "Input",ExpressionUUID->"7fa76fce-105f-4cb4-bb1b-0ac1dacab1b1"],
+Cell[28677, 837, 1692, 44, 136, "Input",ExpressionUUID->"c110f201-7b86-43f3-8c3d-eb1ee3b8f167"],
+Cell[30372, 883, 1587, 42, 157, "Input",ExpressionUUID->"310ac7c8-690f-4f17-9a9a-19da055f219b"],
+Cell[31962, 927, 1453, 39, 136, "Input",ExpressionUUID->"7aefb89d-0b25-44ca-bbd0-c18e3f77d6a7"],
+Cell[CellGroupData[{
+Cell[33440, 970, 328, 8, 30, "Input",ExpressionUUID->"00c853a4-d4db-4be1-87dd-0a8b63b4c689"],
+Cell[33771, 980, 214, 4, 34, "Output",ExpressionUUID->"eb5973ab-ee2c-414b-b744-4d116b01e70a"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[34022, 989, 326, 8, 30, "Input",ExpressionUUID->"6813443c-375c-44c3-a71c-ae16286141b6"],
+Cell[34351, 999, 214, 4, 34, "Output",ExpressionUUID->"9fd4f94e-91a5-46c6-8f43-cb0da010612c"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[34602, 1008, 211, 4, 30, "Input",ExpressionUUID->"b3003a8b-0d8e-472a-a223-1c9e893a6446"],
+Cell[34816, 1014, 205, 5, 34, "Output",ExpressionUUID->"4f3b7388-5d30-424f-abef-fcbf55226424"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[35058, 1024, 802, 22, 115, "Input",ExpressionUUID->"41737b60-04fa-4566-94a2-3c0a0c310166"],
+Cell[35863, 1048, 222, 5, 34, "Output",ExpressionUUID->"75b8d0a6-91b6-4302-a9fd-ce5c247ec37f"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[36122, 1058, 521, 15, 30, "Input",ExpressionUUID->"242b6db7-2231-4c9d-92c3-a11dbdae7bf9"],
+Cell[36646, 1075, 206, 4, 34, "Output",ExpressionUUID->"697e2518-82cd-4935-8eb6-6e58c64d3144"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[36889, 1084, 2023, 52, 220, "Input",ExpressionUUID->"5ae6e905-11fa-468b-b2f0-3847889ff1e2"],
+Cell[38915, 1138, 184, 3, 34, "Output",ExpressionUUID->"d0c958d6-525d-4a64-ac7b-9cd22e87f580"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[39136, 1146, 183, 3, 30, "Input",ExpressionUUID->"d403a168-16bb-4986-bc42-6d0db474bc89"],
+Cell[39322, 1151, 258, 4, 34, "Output",ExpressionUUID->"7c6ec4b9-bc8d-4b42-bdda-56d18fe2879e"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[39617, 1160, 183, 3, 30, "Input",ExpressionUUID->"d21a30ea-d5d3-46d2-914a-e2feb746b85d"],
+Cell[39803, 1165, 238, 5, 34, "Output",ExpressionUUID->"5acb8a6d-7789-4041-a540-c6b1f30da3d2"]
+}, Open  ]]
 }
 ]
 *)
